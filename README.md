@@ -1,20 +1,16 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🎯 3D Sniper
 
-# Run and deploy your AI Studio app
+An interactive, browser-native 3D target shooting application powered by modern web technologies. Focus your aiming inputs, lock onto active targets, and achieve high scores inside a fully fluid 3D graphics environment.
 
-This contains everything you need to run your app locally.
+## 🚀 Play the Game Live
+Experience the deployment instantly without any manual script installations or binary downloads:
+👉 **[Launch 3D Sniper Game](https://ettihad.github.io/3D-Sniper/)**
 
-View your app in AI Studio: https://ai.studio/apps/4a1116ec-6655-46d4-95a5-67d2477c28d4
+---
 
-## Run Locally
+## 🎮 How to Play
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. **Launch the Game:** Open the live deployment link in any modern desktop web browser.
+2. **Configure Permissions:** Grant camera viewport access if prompted by the interface to enable integrated tracking mechanics.
+3. **Aim & Target:** Track crosshair paths smoothly across the 3D graphics rendering space.
+4. **Blast Targets:** Interact dynamically with user interface systems to eliminate active targets and increase your score.
