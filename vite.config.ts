@@ -20,3 +20,9 @@ export default defineConfig(() => {
     },
   };
 });
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  base: '/3D-Sniper/',
+  // Leave any other settings inside here completely alone!
+})
