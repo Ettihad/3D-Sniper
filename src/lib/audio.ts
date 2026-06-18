@@ -6,6 +6,7 @@ export const sound = {
   playGameOver: () => {},
   playLevelUp: () => {},
   toggleMute: () => {},
+  getMuteState: () => false, // 🛠️ Added this missing function to stop the crash!
   isMuted: false
 };
 
