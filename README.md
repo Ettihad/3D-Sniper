@@ -1,20 +1,16 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🎯 3D Sniper
 
-# Run and deploy your AI Studio app
+3D Sniper is a a 3D interactive game which uses your real hand movements to play in game using camera detection. No downloads. No installation. Just your fingers. Have fun playing.
 
-This contains everything you need to run your app locally.
+# 3 modes:
+⚡ Hearts Mode (Instant Shooting): Infinite space survival with a standard lives counter.
+⏱️ Time Trial (Timed 60s): Standard point rush where rapid-fire accuracy is critical.
+🔥 Extension Survival: Target strikes grant bonus seconds, whilst misses penalize your clock.
 
-View your app in AI Studio: https://ai.studio/apps/4a1116ec-6655-46d4-95a5-67d2477c28d4
+# Launch the game
+Link: https://ettihad.github.io/3D-Sniper/
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+# How to play:
+Click the link.
+Grant permission for webcam.
+Use your index to aim and pinch index and thumb to shoot.
