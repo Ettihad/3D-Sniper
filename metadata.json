@@ -1,5 +1,5 @@
 {
-  "name": "3D Shooter",
+  "name": "3D Sniper",
   "description": "A computer-vision-powered 3D targets shooter. Play with your webcam index finger or mouse! Features 3 target-popping modes: Instant Shooting, 60s Time Attack, and Time Survival.",
   "requestFramePermissions": [
     "camera"
