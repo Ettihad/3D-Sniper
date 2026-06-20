@@ -7,6 +7,9 @@
 ⏱️ Time Trial (Timed 60s): Standard point rush where rapid-fire accuracy is critical.
 🔥 Extension Survival: Target strikes grant bonus seconds, whilst misses penalize your clock.
 
+# Launch the game
+Link: https://ettihad.github.io/3D-Sniper/
+
 # How to play:
 Click the link.
 Grant permission for webcam.
