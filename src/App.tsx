@@ -43,11 +43,11 @@ export default function App() {
 
   // Calibration settings
   const [calibration, setCalibration] = useState<GestureCalibration>({
-    pinchThreshold: 0.045, // Sensitivity bounding box
-    aimSmoothing: 0.28, // Exponential weight for highly responsive & stable tracking
+    pinchThreshold: 0.055, // Sensitivity bounding box (optimized for seamless triggering)
+    aimSmoothing: 0.25, // Exponential weight for highly responsive & stable tracking
     mirrorCamera: true, // Auto mirror orientation alignment
     gestureChoice: 'pinch',
-    aimSensitivity: 1.25 // Smooth natural 1:1 mapping directly beneath finger
+    aimSensitivity: 1.8 // Smooth natural reach mapping directly beneath finger
   });
 
   const mainTrackerRef = useRef<WebcamTrackerHandle | null>(null);
@@ -122,10 +122,10 @@ export default function App() {
             
             <div>
               <h1 className="text-base font-extrabold text-white tracking-tight leading-none">
-                3D Shooter
+                3D Sniper
               </h1>
               <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-0.5 block">
-                Adaptive Computer Vision Engine v2.0
+                Fingertip Target Practice
               </span>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function App() {
               }`}
             >
               <ActivityIcon className="h-3.5 w-3.5" />
-              Aim & Shoot
+              Play Game
             </button>
 
             <button
@@ -163,7 +163,7 @@ export default function App() {
               }`}
             >
               <HelpCircle className="h-3.5 w-3.5" />
-              Academy
+              How to Play
             </button>
 
             <button
@@ -180,7 +180,7 @@ export default function App() {
               }`}
             >
               <Trophy className="h-3.5 w-3.5" />
-              Hall of Fame
+              Leaderboard
             </button>
 
             <button
@@ -197,7 +197,7 @@ export default function App() {
               }`}
             >
               <Settings className="h-3.5 w-3.5" />
-              Ranger Systems
+              Settings
             </button>
           </nav>
 
@@ -226,14 +226,14 @@ export default function App() {
       </header>
 
 
-      {/* 2. Primary Layout Framework Arena */}
+      {/* Main layout */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         
-        {/* Dynamic switcher tabs */}
+        {/* View switching */}
         {activeTab === 'play' && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             
-            {/* STAGE LEVEL A: Central Fire Combat Screen (Cols 1-3) */}
+            {/* Play area */}
             <div className="lg:col-span-3">
               <GameCanvas
                 gameState={gameState}
@@ -250,19 +250,19 @@ export default function App() {
               />
             </div>
 
-            {/* STAGE LEVEL B: Real-time Sidebar Camera HUD and Game Config (Col 4) */}
+            {/* Sidebar controls */}
             <div className="flex flex-col gap-6 relative z-10">
               
-              {/* Webcam skeletal node feed */}
+              {/* Webcam view */}
               {controlMode === 'camera' && (
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-center px-1">
                     <span className="text-[10px] font-mono text-slate-300 uppercase tracking-widest font-semibold flex items-center gap-1">
                       <Camera className="h-3 w-3 text-emerald-400" />
-                      Joint Matrix
+                      Hand Tracking Feed
                     </span>
                     <span className="text-[9px] font-mono text-slate-400 uppercase">
-                      480x360 • WASM
+                      Active
                     </span>
                   </div>
                   
@@ -276,7 +276,7 @@ export default function App() {
                   {gameState === 'playing' && (
                     <div className="p-3 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl mt-1.5 text-[11px] text-slate-300 leading-relaxed shadow-lg">
                       <p>
-                        <strong>Combat Tip:</strong> Aim your index finger inside the camera frame. Rapidly pinch your index finger and thumb to fire lasers!
+                        <strong>Quick Tip:</strong> Align your hand inside the webcam box. Aim with your index finger, pinch with your thumb to shoot!
                       </p>
                     </div>
                   )}
@@ -287,10 +287,10 @@ export default function App() {
                 <div className="p-5 bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl flex flex-col items-center justify-center text-center py-8 shadow-xl">
                   <MousePointer className="h-10 w-10 text-emerald-400 mb-3 animate-pulse" />
                   <span className="text-xs font-mono font-bold uppercase text-slate-200">
-                    Standard Fallback Active
+                    Mouse Control Fallback
                   </span>
                   <p className="text-[10px] text-slate-350 mt-2 max-w-[200px] leading-relaxed">
-                    webcam trackers stand-by. Drag/Hover the crosshair anywhere over the game canvas and click to trigger lasers.
+                    Camera tracking is off. Simply move your mouse or tap targets directly on screen to shoot.
                   </p>
                 </div>
               )}
@@ -317,14 +317,14 @@ export default function App() {
                       }`}
                     >
                       <span className="text-xs font-mono font-bold uppercase tracking-wide flex items-center gap-1.5">
-                        {mode === 'instant' ? '⚡ Instant Shooting' : mode === 'timed_60' ? '⏱️ 60 Secs Time Attack' : '🔥 Time Survival (Normal)'}
+                        {mode === 'instant' ? '⚡ Hearts Mode' : mode === 'timed_60' ? '⏱️ Time Trial' : '🔥 Extension Survival'}
                       </span>
                       <span className="text-[10px] text-slate-400 group-hover:text-slate-300 mt-1 leading-relaxed">
                         {mode === 'instant' 
-                          ? 'Infinite standard survival. Traditional lives-based pop targets.' 
+                          ? 'Infinite classic mode. Traditional multi-life survival.' 
                           : mode === 'timed_60' 
-                            ? '60-second strict clock. Tap as many high points as you can!' 
-                            : 'Dynamic timer. Get time on every shot! Targets give +sec, misses cost time.'}
+                            ? '60-second limit score rush. Aim for the highest possible points!' 
+                            : 'Dynamic time constraints. Hitting targets adds time, missing subtracts.'}
                       </span>
                     </button>
                   ))}
@@ -335,7 +335,7 @@ export default function App() {
               <div className="p-5 bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl flex flex-col gap-4 shadow-xl">
                 <span className="text-[10px] font-mono text-slate-300 uppercase tracking-widest font-semibold flex items-center gap-1">
                   <Sliders className="h-3 w-3 text-emerald-400" />
-                  Battle Complexity
+                  Game Difficulty
                 </span>
 
                 <div className="grid grid-cols-2 gap-2">
@@ -396,7 +396,7 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-white text-base font-mono uppercase tracking-wider font-semibold">
-                  Ranger Cyber-Decks config
+                  Game Settings
                 </h3>
                 <span className="text-[10px] text-slate-405 font-mono uppercase tracking-widest">
                   Fine-tune Computer Vision Filters
