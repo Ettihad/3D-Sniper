@@ -1,20 +1,21 @@
 // Human-written placeholder sound module 
-// Safely logs game UI audio triggers to prevent runtime button component crashes
+// Includes all game interaction triggers to guarantee zero runtime layout crashes
 
 export const sound = {
   isMuted: false,
 
-  playShoot: () => console.log('🔊 Game SFX: Fired weapon'),
-  playReload: () => console.log('🔊 Game SFX: Reloaded magazine'),
-  playHit: () => console.log('🎯 Game SFX: Target hit successfully'),
-  playMiss: () => console.log('💨 Game SFX: Shot missed target'),
-  playGameOver: () => console.log('💀 Game SFX: Game over timeline loaded'),
-  playLevelUp: () => console.log('⭐ Game SFX: Advanced to next stage'),
-  playBlip: () => console.log('🎵 UI SFX: Played menu button click blip'), // 🛠️ Added to stop the crash!
+  playShoot: () => console.log('🔊 Game SFX: Fired regular sniper weapon'),
+  playLaser: () => console.log('⚡ Game SFX: Triggered finger pinch laser blast!'), // 🛠️ Fixed the finger pinch crash!
+  playReload: () => console.log('🔊 Game SFX: Reloaded weapon magazine'),
+  playHit: () => console.log('🎯 Game SFX: Target eliminated successfully'),
+  playMiss: () => console.log('💨 Game SFX: Shot missed active target matrix'),
+  playGameOver: () => console.log('💀 Game SFX: Game over timeline initialized'),
+  playLevelUp: () => console.log('⭐ Game SFX: Next wave challenge unlocked'),
+  playBlip: () => console.log('🎵 UI SFX: Played menu option cursor selection blip'),
   
   toggleMute() {
     this.isMuted = !this.isMuted;
-    console.log(`Sound muted state set to: ${this.isMuted}`);
+    console.log(`Sound module muted status toggled to: ${this.isMuted}`);
   },
   
   getMuteState() {
@@ -22,12 +23,12 @@ export const sound = {
   }
 };
 
-export const playSound = (name: string) => {
-  console.log(`Triggering custom sound string: ${name}`);
+export const playSound = (soundKey: string) => {
+  console.log(`Invoking secondary custom sound sequence: ${soundKey}`);
 };
 
 export const stopSound = () => {
-  console.log('All active sound channels halted');
+  console.log('All tracking background sound frequencies muted');
 };
 
 export default {
