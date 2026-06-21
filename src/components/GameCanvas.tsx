@@ -781,6 +781,14 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
 
   const handleCanvasPointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
     if (controlMode !== 'mouse' || gameState !== 'playing') return;
+    
+    const rect = e.currentTarget.getBoundingClientRect();
+    const rawX = (e.clientX - rect.left) / rect.width;
+    const rawY = (e.clientY - rect.top) / rect.height;
+
+    onManualMove(rawX, rawY);
+    crosshairPosRef.current = { x: rawX, y: rawY };
+    
     onManualFire();
     triggerShoot();
   };
@@ -875,7 +883,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
                   <TargetIcon className="h-8 w-8 text-emerald-400" />
                 </div>
                 <h1 className="text-3xl md:text-4xl text-white font-sans tracking-tight font-extrabold pb-1">
-                  3D Shooter
+                  3D Sniper
                 </h1>
                 <div className="mb-4 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 font-mono text-[10px] rounded-full uppercase tracking-wider font-bold">
                   Mode: <span className="text-white">{gameMode === 'instant' ? 'Instant Shooting' : gameMode === 'timed_60' ? '60s Time Attack' : 'Time Survival (Normal)'}</span>
@@ -888,25 +896,15 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
                     : 'The ultimate target survival! Your remaining clock depends entirely on how many objects you shoot. Hits add seconds, while misses and traps drain time.'}
                 </p>
 
-                <div className="w-full flex flex-col gap-3">
-                  <button
-                    onClick={() => {
-                      sound.playBlip();
-                      setGameState('tutorial');
-                    }}
-                    className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 font-mono text-xs uppercase tracking-wider font-semibold text-white rounded-2xl shadow-lg shadow-emerald-700/20 active:scale-[0.98] transition"
-                  >
-                    Calibrate & Train Gestures
-                  </button>
-
+                <div className="w-full">
                   <button
                     onClick={() => {
                       sound.playBlip();
                       setGameState('playing');
                     }}
-                    className="w-full py-3 border border-white/10 bg-white/5 hover:bg-white/10 font-mono text-xs uppercase tracking-wider font-semibold text-slate-200 rounded-2xl active:scale-[0.98] transition backdrop-blur-md"
+                    className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 font-sans text-xs uppercase tracking-widest font-bold text-slate-950 rounded-2xl active:scale-[0.98] transition-all duration-300"
                   >
-                    Force Instant Blast Start
+                    Start Game
                   </button>
                 </div>
               </div>
