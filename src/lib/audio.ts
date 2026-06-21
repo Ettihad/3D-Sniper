@@ -1,5 +1,5 @@
 // Human-written placeholder sound module 
-// Logs game events safely to the console until real sound assets are added
+// Safely logs game UI audio triggers to prevent runtime button component crashes
 
 export const sound = {
   isMuted: false,
@@ -10,6 +10,7 @@ export const sound = {
   playMiss: () => console.log('💨 Game SFX: Shot missed target'),
   playGameOver: () => console.log('💀 Game SFX: Game over timeline loaded'),
   playLevelUp: () => console.log('⭐ Game SFX: Advanced to next stage'),
+  playBlip: () => console.log('🎵 UI SFX: Played menu button click blip'), // 🛠️ Added to stop the crash!
   
   toggleMute() {
     this.isMuted = !this.isMuted;
